@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]  # enable pycodestyle, pyflakes, import sorting
+ignore = ["E501"]          # optional: ignore long line warnings
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
