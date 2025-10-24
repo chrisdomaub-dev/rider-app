@@ -25,7 +25,12 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 
 #### Create User
 
-5. After building and the project is running, create a superuser:
+5. After building and the project is running, load the initial dump data:
+
+   - `make loaddata` or `docker compose run --rm api python manage.py loaddata data.json`
+   - initial admin account is email: `admin@rider.com` pass: `Start1234`
+
+6. Optionally if you want to create a superuser:
    - `make createsuperuser` or `docker compose run --rm api python manage.py createsuperuser`
 
 ## Basic Commands
