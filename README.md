@@ -8,34 +8,46 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 
 1. go to desired folder and run `git clone https://github.com/chrisdomaub-dev/rider-app.git`
 
+#### Opening Project
+
+2. go to the project's directory and open your desired IDE on that project :
+   - preferrably open the project using vscode, since there are IDE setups already in placed.
+   - `cd rider-app`
+   - `code .` this opens up vscode with the project's root directory set.
+
 #### Create Virtual Environment
 
-2. Create a virtual environment in the project root directory, activate it, and install dependencies:
+3. Create a virtual environment in the project root directory, activate it, and install dependencies:
 
    - `python3 -m venv venv`
    - `source venv/bin/activate`
    - `pip install -r requirements.txt`
 
-3. Setup default interpreter to the newly created venv if its not automatically identified.
+4. Setup default interpreter to the newly created venv if its not automatically identified.
 
 #### Startup project
 
-4. Start project by running:
-   - `make runbuild`
+5. Start project by running:
+   - `make runbuild` run this if you want to build
+   - `make run` run this if you just want to start without re-building
 
 #### Loading Dump Data or Create Super User
 
-5. After building and the project is running, load the initial dump data:
+6. After building and the project is running, load the initial dump data:
 
    - `make loaddata` or `docker compose run --rm api python manage.py loaddata data.json`
    - initial admin account is email: `admin@rider.com` pass: `Start1234`
 
-6. Optionally if you want to create a superuser:
+7. Optionally if you want to create a superuser:
    - `make createsuperuser` or `docker compose run --rm api python manage.py createsuperuser`
 
 ## Basic Commands
 
 - To start:
+
+  - `make run` or `docker compose up`
+
+- To start + build:
 
   - `make runbuild` or `docker compose up --build`
 
