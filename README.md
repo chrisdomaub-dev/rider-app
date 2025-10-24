@@ -2,6 +2,8 @@
 
 This project contains clean, simple implementation of a Dockerized Django Rest Framework project.
 
+**_Note: Please make sure that you have a working docker to run the project._**
+
 ## SETTING UP
 
 #### Clone Project from Pepository
