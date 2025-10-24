@@ -26,7 +26,7 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 #### Create User
 
 5. After building and the project is running, create a superuser:
-   `docker compose run --rm web python manage.py createsuperuser`
+   - `make createsuperuser` or `docker compose run --rm api python manage.py createsuperuser`
 
 ## Basic Commands
 
@@ -36,11 +36,15 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 
 - To makemigrations:
 
-  - `make makemigration` or `docker compose run --rm api python3 manage.py makemigrations`
+  - `make makemigration` or `docker compose run --rm api python manage.py makemigrations`
 
 - To migrate:
 
-  - `make migrate` or `docker compose run --rm api python3 manage.py migrate`
+  - `make migrate` or `docker compose run --rm api python manage.py migrate`
+
+- To Create Superuser:
+
+  - `make createsuperuser` or `docker compose run --rm api python manage.py createsuperuser`
 
 - Or look for the Makefile in the project's root for more commands
 
@@ -55,3 +59,36 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 
 - redocs:
   `localhost:8000/redoc/`
+
+## Bonus SQL:
+
+- This will select all rides whose trips are over 1 hour, Identified by pickup timestamp and dropoff timestamp.
+
+```
+SELECT
+    TO_CHAR(ride.pickup_time, 'YYYY-MM') AS month,
+    user.first_name || ' ' || user.last_name AS driver_name,
+    COUNT(*) AS trips_over_1hr
+FROM ride JOIN user ON user.id = ride.driver_id
+
+JOIN LATERAL (
+    SELECT rideevent.created_at FROM rideevent
+    WHERE rideevent.ride_id = ride.id AND rideevent.description LIKE '%Status changed to pickup%'
+    ORDER BY rideevent.created_at DESC LIMIT 1
+) AS pickup_event ON true
+
+JOIN LATERAL (
+    SELECT rideevent.created_at FROM rideevent
+    WHERE rideevent.ride_id = ride.id AND rideevent.description LIKE '%Status changed to dropoff%'
+    ORDER BY rideevent.created_at DESC LIMIT 1
+) AS dropoff_event ON true
+
+WHERE
+    dropoff_event.created_at - pickup_event.created_at > interval '1 hour'
+
+GROUP BY
+    month, driver_name
+
+ORDER BY
+    month, driver_name;
+```

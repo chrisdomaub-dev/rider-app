@@ -22,6 +22,9 @@ shell:
 createsuperuser:
 	docker compose run --rm api python manage.py createsuperuser
 
+loaddata:
+	docker compose run --rm api python manage.py loaddata data.json
+
 logs:
 	docker compose logs -f api
 

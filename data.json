@@ -1,0 +1,180 @@
+[
+  {
+    "model": "app_user.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$F6fpvxMXsAjnfOPZHjHQ77$FbvAaQwiCUYfS760ZV99BGIhFSdxPOOCaQGzhVEx6aQ=",
+      "last_login": "2025-10-24T15:40:33.931Z",
+      "is_superuser": true,
+      "email": "admin@rider.com",
+      "phone_number": null,
+      "first_name": "",
+      "last_name": "",
+      "role": "admin",
+      "is_active": true,
+      "is_staff": true,
+      "date_joined": "2025-10-23T21:19:31Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app_user.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$mfx4U4rgNZ9DicstMVL0zD$Ys3M2n0kbXuwjAr42RXVIUoQ5vhWiRqMmvcH8ysqm8M=",
+      "last_login": "2025-10-23T21:23:44Z",
+      "is_superuser": false,
+      "email": "user1@rider.com",
+      "phone_number": null,
+      "first_name": "One",
+      "last_name": "User",
+      "role": "basic",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2025-10-23T21:23:30Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app_user.user",
+    "pk": 35,
+    "fields": {
+      "password": "Start1234",
+      "last_login": "2025-10-23T21:40:43Z",
+      "is_superuser": false,
+      "email": "user2@rider.com",
+      "phone_number": null,
+      "first_name": "Two",
+      "last_name": "User",
+      "role": "basic",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2025-10-23T21:40:38Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app_user.user",
+    "pk": 36,
+    "fields": {
+      "password": "Start1234",
+      "last_login": "2025-10-23T21:41:04Z",
+      "is_superuser": false,
+      "email": "user3@rider.com",
+      "phone_number": null,
+      "first_name": "Three",
+      "last_name": "User",
+      "role": "basic",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2025-10-23T21:41:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app_ride.ride",
+    "pk": 1,
+    "fields": {
+      "rider": 2,
+      "driver": 35,
+      "status": "dropoff",
+      "pickup_latitude": 7.454728,
+      "pickup_longitude": 125.80715,
+      "dropoff_latitude": 7.457094,
+      "dropoff_longitude": 125.791475,
+      "pickup_time": "2025-10-24T07:28:33Z",
+      "created_at": "2025-10-24T11:43:29.083Z"
+    }
+  },
+  {
+    "model": "app_ride.ride",
+    "pk": 2,
+    "fields": {
+      "rider": 35,
+      "driver": 2,
+      "status": "pending",
+      "pickup_latitude": 7.422217,
+      "pickup_longitude": 125.817603,
+      "dropoff_latitude": 7.422453,
+      "dropoff_longitude": 125.828544,
+      "pickup_time": "2025-10-24T11:16:17Z",
+      "created_at": "2025-10-24T11:43:29.083Z"
+    }
+  },
+  {
+    "model": "app_ride.ride",
+    "pk": 3,
+    "fields": {
+      "rider": 36,
+      "driver": 2,
+      "status": "pending",
+      "pickup_latitude": 7.468616,
+      "pickup_longitude": 125.799293,
+      "dropoff_latitude": 7.47893,
+      "dropoff_longitude": 125.804935,
+      "pickup_time": "2025-10-24T11:16:30Z",
+      "created_at": "2025-10-24T11:43:29.083Z"
+    }
+  },
+  {
+    "model": "app_ride.ride",
+    "pk": 4,
+    "fields": {
+      "rider": 35,
+      "driver": 35,
+      "status": "pending",
+      "pickup_latitude": 7.449681,
+      "pickup_longitude": 125.780084,
+      "dropoff_latitude": 7.453843,
+      "dropoff_longitude": 125.78943,
+      "pickup_time": "2025-10-24T11:44:18Z",
+      "created_at": "2025-10-24T11:44:19.214Z"
+    }
+  },
+  {
+    "model": "app_ride.ride",
+    "pk": 5,
+    "fields": {
+      "rider": 35,
+      "driver": 2,
+      "status": "pending",
+      "pickup_latitude": 7.453843,
+      "pickup_longitude": 125.78943,
+      "dropoff_latitude": 7.449681,
+      "dropoff_longitude": 125.780084,
+      "pickup_time": "2025-10-24T15:32:25.327Z",
+      "created_at": "2025-10-24T15:28:29.760Z"
+    }
+  },
+  {
+    "model": "app_ride.rideevent",
+    "pk": 4,
+    "fields": {
+      "ride": 1,
+      "description": "Status changed to en-route.",
+      "created_at": "2025-10-24T15:58:47.334Z"
+    }
+  },
+  {
+    "model": "app_ride.rideevent",
+    "pk": 5,
+    "fields": {
+      "ride": 1,
+      "description": "Status changed to pickup.",
+      "created_at": "2025-10-24T15:58:55.715Z"
+    }
+  },
+  {
+    "model": "app_ride.rideevent",
+    "pk": 6,
+    "fields": {
+      "ride": 1,
+      "description": "Status changed to drop-off.",
+      "created_at": "2025-10-24T15:59:03.513Z"
+    }
+  }
+]

@@ -68,5 +68,7 @@ class RideStatusUpdateSerializer(serializers.ModelSerializer):
         instance.save()
 
         # create RideEvent
-        RideEvent.objects.create(ride=instance, description=new_status)
+        RideEvent.objects.create(
+            ride=instance, description=f"Status changed to {new_status}."
+        )
         return instance
