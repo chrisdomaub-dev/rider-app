@@ -4,11 +4,11 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 
 ## SETTING UP
 
-### Clone Project from Pepository
+#### Clone Project from Pepository
 
 1. go to desired folder and run `git clone https://github.com/chrisdomaub-dev/rider-app.git`
 
-### Create Virtual Environment
+#### Create Virtual Environment
 
 2. Create a virtual environment in the project root directory, activate it, and install dependencies:
 
@@ -18,12 +18,12 @@ This project contains clean, simple implementation of a Dockerized Django Rest F
 
 3. Setup default interpreter to the newly created venv if its not automatically identified.
 
-### Startup project
+#### Startup project
 
 4. Start project by running:
    - `make runbuild`
 
-#### Create User
+#### Loading Dump Data or Create Super User
 
 5. After building and the project is running, load the initial dump data:
 
